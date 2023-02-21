@@ -145,7 +145,7 @@ CREATE TABLE [version_table]
 -- insert into version_table the initial version
 
 INSERT INTO [version_table] 
-	 VALUES (1)
+     VALUES (1)
 
 
 -- create a table that contains the initial version, the version after the execution of the procedure 
@@ -162,19 +162,19 @@ CREATE TABLE [procedure_table]
 
 INSERT INTO [procedure_table]
 	 VALUES (1, 2, 'setCountsFromConvictionTinyInt'),
-			(2, 1, 'setCountsFromConvictionInt'),
-			(2, 3, 'addAgeToPerson'),
-			(3, 2, 'removeAgeFromPerson'),
-			(3, 4, 'addDefaultToCountsFromConviction'),
-			(4, 3, 'removeDefaultFromCountsFromConviction'),
-			(4, 5, 'addPrisonTable'),
-			(5, 4, 'dropPrisonTable'),
-			(5, 6, 'addNameAndSecurityClassPrimaryKeyToPrison'),
-			(6, 5, 'removeNameAndSecurityClassPrimaryKeyFromPrison'),
-			(6, 7, 'addCandidateKeyToPerson'),
-			(7, 6, 'removeCandidateKeyFromPerson'),
-			(7, 8, 'addForeignKeyToPrison'),
-			(8, 7, 'removeForeignKeyFromPrison')
+		(2, 1, 'setCountsFromConvictionInt'),
+		(2, 3, 'addAgeToPerson'),
+		(3, 2, 'removeAgeFromPerson'),
+		(3, 4, 'addDefaultToCountsFromConviction'),
+		(4, 3, 'removeDefaultFromCountsFromConviction'),
+		(4, 5, 'addPrisonTable'),
+		(5, 4, 'dropPrisonTable'),
+		(5, 6, 'addNameAndSecurityClassPrimaryKeyToPrison'),
+		(6, 5, 'removeNameAndSecurityClassPrimaryKeyFromPrison'),
+		(6, 7, 'addCandidateKeyToPerson'),
+		(7, 6, 'removeCandidateKeyFromPerson'),
+		(7, 8, 'addForeignKeyToPrison'),
+		(8, 7, 'removeForeignKeyFromPrison')
 			
 
 -- main procedure to switch between database versions
