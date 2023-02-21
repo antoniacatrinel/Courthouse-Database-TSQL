@@ -2,7 +2,7 @@ USE [courthouse]
 GO
 
 -- select data
--- a. 2 queries with the union operation; use UNION [ALL] and OR;
+-- a. 2 queries with the union operation; use UNION [ALL] and OR
 
 -- find the full names of the case staff members who have more than 5 years of practice and are male
 SELECT [J].[first_name], [J].[last_name]
@@ -35,7 +35,7 @@ SELECT TOP 3 [P].[prosecutorid] AS [ID]
 ORDER BY [E].[caseid]
 
 
--- b. 2 queries with the intersection operation; use INTERSECT and IN;
+-- b. 2 queries with the intersection operation; use INTERSECT and IN
 
 -- find the ids of the persons who are of status 'defendant' in at least one lawsuit
    SELECT [P].[personid]
@@ -60,7 +60,7 @@ SELECT [CR].[roomid], [CR].[address]
  WHERE [CR].[schedule] NOT IN ('10-18', '12-16')
 
 
--- c. 2 queries with the difference operation; use EXCEPT and NOT IN;
+-- c. 2 queries with the difference operation; use EXCEPT and NOT IN
 
 -- find the ids of the employed attorneys who are not involved in any lawsuit
 SELECT [A].[attorneyid]
@@ -80,7 +80,7 @@ SELECT [T].[caseid]
  WHERE [T].[remarks] NOT IN ('defendant pleaded guilty', 'sentence to be serverd immediately')
 
 
--- d. 4 queries with INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN (one query per operator); 
+-- d. 4 queries with INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN (one query per operator)
 -- one query will join at least 3 tables, while another one will join at least two many-to-many relationships;
 
 -- 2 m:n relations
@@ -120,8 +120,8 @@ FULL JOIN [lawsuit] [L]
  ORDER BY [P].[first_name], [P].[last_name]
     
 
--- e. 2 queries with the IN operator and a subquery in the WHERE clause; 
--- in at least one case, the subquery must include a subquery in its own WHERE clause;
+-- e. 2 queries with the IN operator and a subquery in the WHERE clause
+-- in at least one case, the subquery must include a subquery in its own WHERE clause
 
 -- find the address, schedule and capacity * 2 of the courtrooms which are scheduled for at least one ongoing trial
 SELECT [CR].[address], [CR].[capacity] * 2, [CR].[schedule]
@@ -147,7 +147,7 @@ SELECT [C].[case_type], [C].[crime], [C].[start_date]
 			)
 
 
--- f. 2 queries with the EXISTS operator and a subquery in the WHERE clause;
+-- f. 2 queries with the EXISTS operator and a subquery in the WHERE clause
 
 -- find the full name, email and phone number of the attorneys who are currently involved in lawsuits
 SELECT [A].[first_name], [A].[last_name], [A].[email], [A].[phone]
@@ -169,7 +169,7 @@ SELECT [P].[prosecutorid], [P].[address], [P].[lawschool]
  )
 
 
--- g. 2 queries with a subquery in the FROM clause;    
+-- g. 2 queries with a subquery in the FROM clause
 
 -- find the id, address and schedule of all court rooms with capacity of at least 100 which are scheduled for ongoing trials 
 SELECT [R].[roomid], [R].[address], [R].[schedule]
@@ -196,8 +196,8 @@ SELECT [JJ].[first_name], [JJ].[last_name], [JJ].[salary]
 WHERE [JJ].[salary] >= [JJ].[average_salary] 
 
 
--- h. 4 queries with the GROUP BY clause, 3 of which also contain the HAVING clause; 2 of the latter will also have a subquery in the HAVING clause;
--- use the aggregation operators: COUNT, SUM, AVG, MIN, MAX;
+-- h. 4 queries with the GROUP BY clause, 3 of which also contain the HAVING clause; 2 of the latter will also have a subquery in the HAVING clause
+-- use the aggregation operators: COUNT, SUM, AVG, MIN, MAX
 
 -- find the full name of the attorney who has at least 5 years of practice and is involved in at least 2 lawsuits
   SELECT [A].[first_name], [A].[last_name] 
@@ -253,7 +253,7 @@ INNER JOIN [evidence] [E]
 			)
 
 
--- i. 4 queries using ANY and ALL to introduce a subquery in the WHERE clause (2 queries per operator); 
+-- i. 4 queries using ANY and ALL to introduce a subquery in the WHERE clause (2 queries per operator)
 -- rewrite 2 of them with aggregation operators, and the other 2 with IN / [NOT] IN.
 
 -- find the full name and years of practice of all judges with more experience than all court-appointed attorneys
