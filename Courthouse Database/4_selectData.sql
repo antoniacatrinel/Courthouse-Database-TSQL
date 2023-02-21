@@ -140,10 +140,10 @@ SELECT [C].[case_type], [C].[crime], [C].[start_date]
 			SELECT [T].[caseid]
 			  FROM [trial] [T]
 			 WHERE [T].[trial_status] = 'ended' AND [C].[caseid] IN (
-														SELECT [E].[caseid]
-														  FROM [evidence] [E]
-														 WHERE [E].[type] = 'physical' 
-														)
+										SELECT [E].[caseid]
+										  FROM [evidence] [E]
+										 WHERE [E].[type] = 'physical' 
+										)
 			)
 
 
@@ -218,15 +218,15 @@ INNER JOIN [case_staff] [CS]
         ON [P].[prosecutorid] = [CS].[prosecutorid]
   GROUP BY [P].[prosecutorid], [P].[first_name], [P].[last_name]
     HAVING COUNT(*) = (
-					SELECT MAX([t].[C])
-					  FROM (
-						  SELECT COUNT(*) [C]
-						    FROM [prosecutor] [P] 
-					  INNER JOIN [case_staff] [CS] 
-							  ON [P].[prosecutorid] = [CS].[prosecutorid]
-						GROUP BY [P].[prosecutorid], [P].[first_name], [P].[last_name]
-					      ) [t]
-		             )
+			SELECT MAX([t].[C])
+			  FROM (
+				SELECT COUNT(*) [C]
+				  FROM [prosecutor] [P] 
+			    INNER JOIN [case_staff] [CS] 
+				    ON [P].[prosecutorid] = [CS].[prosecutorid]
+			      GROUP BY [P].[prosecutorid], [P].[first_name], [P].[last_name]
+			       ) [t]
+		       )
 
 
 -- find the salaries * 3 of the judges and for each salary the number of judges
@@ -242,15 +242,15 @@ INNER JOIN [evidence] [E]
         ON [E].[caseid] = [CC].[caseid]
   GROUP BY [CC].[caseid], [CC].[case_type], [CC].[crime]
     HAVING COUNT(*) >= (
-					 SELECT AVG([t].[C])
-					   FROM (
-					       SELECT COUNT(*) [C]
-					         FROM [court_case] [CC]
-                       INNER JOIN [evidence] [E]
-                               ON [E].[caseid] = [CC].[caseid]
-                         GROUP BY [CC].[caseid], [CC].[case_type], [CC].[crime]
-					       ) [t]
-					 )
+			SELECT AVG([t].[C])
+			  FROM (
+				SELECT COUNT(*) [C]
+				  FROM [court_case] [CC]
+                            INNER JOIN [evidence] [E]
+                                    ON [E].[caseid] = [CC].[caseid]
+                              GROUP BY [CC].[caseid], [CC].[case_type], [CC].[crime]
+				 ) [t]
+			)
 
 
 -- i. 4 queries using ANY and ALL to introduce a subquery in the WHERE clause (2 queries per operator); 
