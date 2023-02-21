@@ -31,10 +31,10 @@ CREATE OR ALTER PROCEDURE [addConviction](@n INT)
 AS
 BEGIN
 	DECLARE @startid INT = (
-								SELECT TOP 1 [C].[caseid] 
-								  FROM [court_case] [C] 
-								 WHERE [crime] like 'Crime %'
-					       )
+				  SELECT TOP 1 [C].[caseid] 
+				    FROM [court_case] [C] 
+				   WHERE [crime] like 'Crime %'
+			)
 	DECLARE @i INT = 0
 
 	WHILE @i < @n 
@@ -68,9 +68,9 @@ BEGIN
 		FOR
 		 SELECT [t].[caseid], [J].[judgeid], [P].[prosecutorid]
 		   FROM (
-					SELECT [CC].[caseid]
-					  FROM [court_case] [CC]
-					 WHERE [crime] like 'Crime %'
+			  SELECT [CC].[caseid]
+			    FROM [court_case] [CC]
+			   WHERE [crime] like 'Crime %'
 				) [t]
      CROSS JOIN [judge] [J]
      CROSS JOIN [prosecutor] [P]
@@ -137,14 +137,14 @@ BEGIN
 END
 GO
 
--- Tests – holds data about different tests;
--- Tables – holds data about tables that can take part in tests;
--- TestTables – junction table between Tests and Tables (which tables take part in which tests);
--- Views – holds data about a set of views from the database, used to assess the performance of certain SQL queries;
--- TestViews – junction table between Tests and Views (which views take part in which tests);
--- TestRuns – contains data about different test runs; 
--- TestRunTables – contains performance data for INSERT operations for each table in each test run;
--- TestRunViews – contains performance data for each view in each test run. 
+-- TestsÂ â€“ holds data about different tests;
+-- TablesÂ â€“ holds data about tables that can take part in tests;
+-- TestTablesÂ â€“ junction table betweenÂ TestsÂ andÂ TablesÂ (which tables take part in which tests);
+-- ViewsÂ â€“ holds data about a set of views from the database, used to assess the performance of certain SQL queries;
+-- TestViewsÂ â€“ junction table betweenÂ TestsÂ andÂ ViewsÂ (which views take part in which tests);
+-- TestRunsÂ â€“ contains data about different test runs; 
+-- TestRunTablesÂ â€“ contains performance data for INSERT operations for each table in each test run;
+-- TestRunViewsÂ â€“ contains performance data for each view in each test run. 
 
 
 INSERT INTO [Tests](Name) 
@@ -173,11 +173,11 @@ INSERT INTO [TestViews]([TestID], [ViewID])
 
 INSERT INTO [TestTables]([TestID], [TableID], [NoOfRows], [Position])
 	 VALUES (6, 3, 100, 1),    -- deletes
-			(4, 2, 150, 2),
-			(2, 1, 200, 3),
-			(1, 1, 250, 1),    -- inserts
-			(3, 2, 300, 2),
-			(5, 3, 350, 3)
+		(4, 2, 150, 2),
+		(2, 1, 200, 3),
+		(1, 1, 250, 1),    -- inserts
+		(3, 2, 300, 2),
+		(5, 3, 350, 3)
 
 
 SELECT *
@@ -327,9 +327,9 @@ BEGIN
 
 	DECLARE @testRunID INT
 	SET @testRunID = (
-						SELECT MAX([TestRunID])
-						  FROM [TestRuns]
-					 )
+			   SELECT MAX([TestRunID])
+			     FROM [TestRuns]
+			 )
 
 	PRINT 'Started test with id ' + CONVERT(VARCHAR, @testRunID)
 
