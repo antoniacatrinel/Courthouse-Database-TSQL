@@ -19,7 +19,7 @@ INSERT INTO [person]([ssn], [first_name], [last_name], [birth_date], [gender], [
 -- person_status(statusid, person_type)
 INSERT INTO [person_status]([person_type])
 	 VALUES ('defendant'), 
-			('plaintiff')
+		('plaintiff')
 
 -- judge(judgeid, ssn, first_name, last_name, birth_date, gender, address, email, phone, lawschool, office, years_of_practice, salary)
 INSERT INTO [judge]([ssn], [first_name], [last_name], [birth_date], [gender], [address], [email], [phone], [lawschool], [years_of_practice], [salary]) 
@@ -95,15 +95,15 @@ INSERT INTO [lawsuit]([personid], [caseid], [attorneyid], [person_status], [sala
 -- trial(trialid, caseid, roomid, trial_status, date, time, sentence,remarks)
 INSERT INTO [trial]([caseid], [roomid], [trial_status], [date], [time], [sentence], [remarks])
 	 VALUES (1, 1, 'ongoing', '2022-08-08', '09:00:00', '', 'defendant pleaded not guilty'),
-			(2, 5, 'ended', '2014-03-15', '11:30:00', '2 years imprisonment', 'sentence to be serverd immediately'),
-			(3, 3, 'ongoing', '2021-07-01', '10:45:00', '', 'defendant pleaded guilty'),
-			(4, 2, 'ended', '2022-05-10', '10:30:00', 'life imprisonment', 'defendant found guilty'),
-			(5, 4, 'ongoing', '2020-06-08', '10:00:00', '', 'found substantial evidence'),
-			(6, 5, 'ongoing', '2020-12-19', '09:00:00', '', 'defendant pleaded not guilty'),
-            (7, 1, 'ongoing', '2021-04-18', '10:00:00', '', 'defendant pleaded not guilty'),
-            (8, 2, 'ended', '2011-11-11', '11:30:00', '3 years imprisonment', 'sentence to be serverd immediately'),
-            (9, 3, 'ongoing', '2020-12-19', '10:45:00', '', 'defendant pleaded guilty'),
-            (10, 4, 'ended', '2021-05-10', '10:30:00', '30 years imprisonment', 'defendant pleaded guilty')
+		(2, 5, 'ended', '2014-03-15', '11:30:00', '2 years imprisonment', 'sentence to be serverd immediately'),
+		(3, 3, 'ongoing', '2021-07-01', '10:45:00', '', 'defendant pleaded guilty'),
+		(4, 2, 'ended', '2022-05-10', '10:30:00', 'life imprisonment', 'defendant found guilty'),
+		(5, 4, 'ongoing', '2020-06-08', '10:00:00', '', 'found substantial evidence'),
+		(6, 5, 'ongoing', '2020-12-19', '09:00:00', '', 'defendant pleaded not guilty'),
+            	(7, 1, 'ongoing', '2021-04-18', '10:00:00', '', 'defendant pleaded not guilty'),
+            	(8, 2, 'ended', '2011-11-11', '11:30:00', '3 years imprisonment', 'sentence to be serverd immediately'),
+            	(9, 3, 'ongoing', '2020-12-19', '10:45:00', '', 'defendant pleaded guilty'),
+            	(10, 4, 'ended', '2021-05-10', '10:30:00', '30 years imprisonment', 'defendant pleaded guilty')
 
 -- case_staff(caseid, judgeid, prosecutorid)
 INSERT INTO [case_staff]([caseid], [judgeid], [prosecutorid], [salary])
@@ -149,11 +149,11 @@ INSERT INTO [evidence]([caseid], [type], [description])
 -- conviction(convictionid, caseid, date, penalty, counts)
 INSERT INTO [conviction]([caseid], [date], [penalty], [counts])
 	 VALUES (2, '2014-08-08', '2 years imprisonment', 2),
-            (4, '2022-03-15', 'life imprisonment', 3),
-            (8, '2011-07-01', '3 years imprisonment', 1),
-            (10, '2015-05-10', '30 years imprisonment', 2),
-			(1, '2022-08-08', 'life imprisonment', 5),
-			(5, '2020-08-08', '4 years imprisonment', 6)
+                (4, '2022-03-15', 'life imprisonment', 3),
+                (8, '2011-07-01', '3 years imprisonment', 1),
+                (10, '2015-05-10', '30 years imprisonment', 2),
+		(1, '2022-08-08', 'life imprisonment', 5),
+		(5, '2020-08-08', '4 years imprisonment', 6)
 
 
 -- insert data that violates referential integrity constraints
