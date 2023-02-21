@@ -230,7 +230,6 @@ SELECT *
 SELECT *
   FROM [version_table]
 
-
 EXECUTE [goToVersion] 1
 EXECUTE [goToVersion] 2
 EXECUTE [goToVersion] 3
@@ -239,7 +238,6 @@ EXECUTE [goToVersion] 5
 EXECUTE [goToVersion] 6
 EXECUTE [goToVersion] 7
 EXECUTE [goToVersion] 8
-
 
 SELECT *
   FROM [version_table]
